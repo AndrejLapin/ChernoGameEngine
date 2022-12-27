@@ -1,8 +1,6 @@
 #include "hzpch.h"
 #include "Application.h"
 
-#include "Hazel/Events/ApplicationEvent.h"
-
 namespace Hazel {
 
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
@@ -17,18 +15,38 @@ namespace Hazel {
     {
     }
 
+    void Application::PushLayer(Layer* layer)
+    {
+        m_LayerStack.PushLayer(layer);
+    }
+
+    void Application::PushOverlay(Layer* layer)
+    {
+        m_LayerStack.PushOverLay(layer);
+    }
+
     void Application::OnEvent(Event& e)
     {
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowCLosed));
 
         HZ_CORE_INFO("{0}", e);
+
+        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+        {
+            (*--it)->OnEvent(e);
+            if (e.m_Handled)
+                break;
+        }
     }
 
     void Application::Run()
     {
         while (m_Running)
         {
+            for (Layer* layer : m_LayerStack)
+                layer->OnUpdate();
+
             m_Window->OnUpdate();
         }
     }
