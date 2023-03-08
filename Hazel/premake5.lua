@@ -14,7 +14,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
 IncludeDir["Glad"] = "Hazel/vendor/Glad/include"
-IncludeDir["imgui"] = "Hazel/vendor/imgui/include"
+IncludeDir["ImGui"] = "Hazel/vendor/imgui"
 
 include "Hazel/vendor/GLFW"
 include "Hazel/vendor/Glad"
@@ -72,7 +72,11 @@ project "Hazel"
         }
 
     filter "configurations:Debug"
-        defines "HZ_DEBUG"
+        defines 
+        {
+            "HZ_DEBUG",
+            "HZ_ENABLE_ASSERTS",
+        }
         buildoptions "/MDd"
         symbols "On"
 

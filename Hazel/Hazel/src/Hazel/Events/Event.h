@@ -12,9 +12,9 @@ namespace Hazel
     enum class EventType : unsigned int
     {
         Node = 0,
-        WindowClose, WindowResize, WindowFocus, WindowLostFOcust, WindowMoved,
+        WindowClose, WindowResize, WindowFocus, WindowLostFocust, WindowMoved,
         AppTick, AppUpdate, AppRender,
-        KeyPressed, KeyReleased,
+        KeyPressed, KeyReleased, KeyTyped,
         MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
     };
 
