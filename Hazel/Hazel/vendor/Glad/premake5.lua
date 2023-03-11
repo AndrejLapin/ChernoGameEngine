@@ -29,15 +29,13 @@ project "Glad"
 	filter { "system:windows", "configurations:Release" }
 		buildoptions "/MT"
 
-	-- filter "configurations:Debug"
-	-- 	runtime "Debug"
-	-- 	buildoptions "/MDd"
-	-- 	symbols "on"
+	filter "configurations:Debug"
+		runtime "Debug"
+		symbols "on"
 
-	-- filter "configurations:Release"
-	-- 	runtime "Release"
-	-- 	buildoptions "/MD"
-	-- 	optimize "on"
+	filter "configurations:Release"
+		runtime "Release"
+		optimize "on"
 
 	-- filter "configurations:Dist"
 	-- 	runtime "Release"
