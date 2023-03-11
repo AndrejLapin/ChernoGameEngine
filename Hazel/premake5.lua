@@ -17,6 +17,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
 IncludeDir["Glad"] = "Hazel/vendor/Glad/include"
 IncludeDir["ImGui"] = "Hazel/vendor/imgui"
+IncludeDir["glm"] = "Hazel/vendor/glm"
 
 group "Dependencies"
     include "Hazel/vendor/GLFW"
@@ -27,7 +28,7 @@ group "Dependencies"
 
 project "Hazel"
     location "Hazel"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
     staticruntime "off"
 
@@ -41,6 +42,8 @@ project "Hazel"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl",
     }
 
     includedirs
@@ -50,6 +53,7 @@ project "Hazel"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}",
     }
 
     links
@@ -110,6 +114,8 @@ project "Sandbox"
     {
         "Hazel/vendor/spdlog/include",
         "Hazel/src",
+        "Hazel/vendor",
+        "%{IncludeDir.glm}",
     }
 
     links

@@ -9,6 +9,7 @@
 namespace Hazel {
 
     class WindowCloseEvent;
+    class ImGuiLayer;
 
     class HAZEL_API Application
     {
@@ -30,6 +31,7 @@ namespace Hazel {
         bool OnWindowCLosed(WindowCloseEvent& e);
 
         std::unique_ptr<Window> m_Window;
+        ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
     private:
