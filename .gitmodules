@@ -7,3 +7,6 @@
 [submodule "Hazel/Hazel/vendor/glm"]
 	path = Hazel/Hazel/vendor/glm
 	url = https://github.com/g-truc/glm
+[submodule "Hazel/Hazel/vendor/spdlog"]
+	path = Hazel/Hazel/vendor/spdlog
+	url = https://github.com/gabime/spdlog
