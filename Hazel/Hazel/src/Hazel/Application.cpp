@@ -3,9 +3,8 @@
 
 // TEMPORARY
 #include <glad/glad.h>
-#include <GLFW/glfw3.h>
 
-#include "Input.h"
+#include "Input/Input.h"
 
 namespace Hazel {
 
@@ -59,9 +58,6 @@ namespace Hazel {
         {
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
-
-            Vector2 mousePos = Input::GetMousePosition();
-            HZ_CORE_TRACE("{0}, {1}", mousePos.x, mousePos.y);
 
             m_Window->OnUpdate();
             glClear(GL_COLOR_BUFFER_BIT);

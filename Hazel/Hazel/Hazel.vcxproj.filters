@@ -65,9 +65,11 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\hzpch.h" />
-    <ClInclude Include="src\Hazel\Input.h" />
+    <ClInclude Include="src\Hazel\Input\Input.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Hazel\Types\Vector2.h" />
+    <ClInclude Include="src\Hazel\Input\KeyCodes.h" />
+    <ClInclude Include="src\Hazel\Input\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hazel\Application.cpp">
